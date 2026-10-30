@@ -1,0 +1,200 @@
+@php
+$public_url="";
+if(isset(session('userorginfo')['site_url'])){
+$public_url = session('userorginfo')['site_url'];
+}
+@endphp
+<footer>
+@if(!$footer->isEmpty())
+<div class="container-fluid">
+<div class="row">
+<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+  @foreach($footer as $footerlist)
+  @if($footerlist->footer_type=='leftside')
+  <a href="{{url('/')}}"><img src="{{$public_url}}backend/logo/@if(isset($footerlist->footer_logo)){{$footerlist->footer_logo}}@endif" alt="@if(isset($footerlist->alt_tag)){{$footerlist->alt_tag}}@endif" class="img-fluid "></a>
+  <p>@if(isset($footerlist->description)){!! $footerlist->description !!}@endif</p>
+<div><a href="{{url('/schedule-a-consultation')}}" class="btn-appointment">Book An Appointment</a></div>
+@endif
+@endforeach
+</div>
+@foreach($footer as $footerlist)
+  @if($footerlist->footer_type=='rightside')
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+  <div class="footerhd">{{$footerlist->footer_name}}</div>
+  @php
+  
+  $footerlist = json_decode($footerlist->menu_name); 
+$footerlistsec = $footerlist->menuname;
+$footerlistsec = collect($footerlistsec)->sortBy('menu_order_by');
+  @endphp
+  <ul class="ftrlinks">
+    @foreach($footerlistsec as $footerlistdata)
+    <li><a href="{{url($footerlistdata->menu_url)}}">{{$footerlistdata->menu_name}}</a></li>
+    @endforeach
+    <!-- <li><a href="{{url('/about-doctor')}}">About Doctor</a></li>
+    <li><a href="{{url('/about-clinic')}}">About Clinic</a></li>
+    <li><a href="{{url('/gallery')}}">Clinic Gallery</a></li>
+    <li><a href="{{url('/testimonials')}}">Testimonials</a></li>
+    <li><a href="{{url('/blogs')}}">Blogs</a></li>
+    <li><a href="{{url('/contact-us')}}">Contact Us</a></li> -->
+    </ul>
+</div>
+<!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+  <div class="footerhd">Services</div>
+  <ul class="ftrlinks">      
+<li><a href="{{url('services/prp-for-hair-growth-men')}}">PRP for Hair Growth - Men</a></li>
+<li><a href="{{url('services/prp-for-hair-growth-women')}}">PRP for Hair Growth - Women</a></li>
+<li><a href="{{url('services/prp-for-skin-rejuvenation')}}">PRP for Skin Rejuvenation</a></li>
+
+    </ul>
+</div> -->
+@endif
+@endforeach
+<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+  <div class="footerhd">Contact Us</div>
+
+  @if(isset($contactus->phone))
+  @php 
+$phonedata = json_decode($contactus->phone); 
+$phonelist = $phonedata->primary;
+$phonelist = collect($phonelist)->sortBy('phone_order_by');
+@endphp
+@if(isset($phonedata->secondary))
+@if(!$phonedata->secondary->isEmpty())
+@php
+$phoneseclist = $phonedata->secondary;
+$phoneseclist = collect($phoneseclist)->sortBy('phone_order_by');
+@endphp
+@endif
+@endif
+@endif
+
+@if(isset($contactus->email_id))
+@php
+$emailiddata = json_decode($contactus->email_id); 
+$emailidlist = $emailiddata->primary;
+$emailidlist = collect($emailidlist)->sortBy('email_order_by');
+@endphp
+@if(isset($emailiddata->secondary))
+@if(!$emailiddata->secondary->isEmpty())
+@php
+$emailidseclist = $emailiddata->secondary;
+$emailidseclist = collect($emailidseclist)->sortBy('email_order_by');
+@endphp
+@endif
+@endif
+@endif
+<ul class="ftradressinfo">
+  
+  <li><strong>{{$contactus->name}}</strong><br> {{$contactus->address}} @if(isset($contactus->address1)),<br>{{$contactus->address1}}@endif @if(isset($contactus->address2)),<br>{{$contactus->address2}}@endif @if(isset($contactus->pincode))-{{$contactus->pincode}}@endif</li>
+  @if(isset($phonelist))
+  @if(!$phonelist->isEmpty())
+  @foreach($phonelist as $priphonelist)
+  <li><strong>Contact: <a href="Tel:+{{$priphonelist->phonecode}} {{$priphonelist->phone}}">+{{$priphonelist->phonecode}} {{$priphonelist->phone}}</a></strong><br>
+  @endforeach
+  @endif
+  @endif
+  @if(isset($phoneseclist))
+  @if(!$phoneseclist->isEmpty())
+  @foreach($phoneseclist as $phonesecdatalist)
+  <strong>Contact: <a href="Tel:+{{$phonesecdatalist->phonecode}} {{$phonesecdatalist->phone}}">+{{$phonesecdatalist->phonecode}} {{$phonesecdatalist->phone}}</a></strong><br>
+  @endforeach
+  @endif
+  @endif
+
+  @if(isset($emailidlist))
+  @if(!$emailidlist->isEmpty())
+  @foreach($emailidlist as $emailiddatalist)
+  <strong>Email: <a href="Mailto:{{$emailiddatalist->email}}">{{$emailiddatalist->email}}</a></strong><br>
+  @endforeach
+  @endif
+  @endif
+  @if(isset($emailidseclist))
+  @if(!$emailidseclist->isEmpty())
+  @foreach($emailidseclist as $emailidsecdatalist)
+  <strong>Email: <a href="Tel:{{$emailidsecdatalist->email}}">{{$emailidsecdatalist->email}}</a></strong></li>
+  @endforeach
+  @endif
+  @endif
+</ul>
+<ul class="social-network">
+<li class="socialTxt" style="display: block;">Follow Us On</li>
+<li><a class="waves-effect waves-dark" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+<li><a class="waves-effect waves-dark" href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+<li><a class="waves-effect waves-dark" href="#" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+<li><a class="waves-effect waves-dark" href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+@endif
+<div class="ftr-triangle"></div>
+</footer>
+
+<div class="container-fluid ftrbtm">
+<div class="row">
+<div class="col-md-6">Terms & Conditions | Legal Disclaimer | Privacy Policy</div>
+<div class="col-md-6 text-end">© Copyright 2021 Aestiva | All Rights Reserved. Powered by <a href="https://www.digilantern.com/" target="_blank" style="color:#f95605">DigiLantern</a></div>
+</div>
+</div> 
+
+<a href="#" id="scroll" style="display: none;"><span></span></a>
+
+
+
+<div class="nav-link top_book d-md-none d-lg-none d-xl-none col-sm-block">
+      <div class="row align-items-center">
+          <div class="col">
+            @if(isset($phonelist))
+  @if(!$phonelist->isEmpty())
+  @foreach($phonelist as $priphonelist)
+              <a href="Tel:+{{$priphonelist->phonecode}} {{$priphonelist->phone}}">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <p>Call Us</p>
+              </a>
+                  @endforeach
+  @endif
+  @endif
+          </div>
+          <div class="col" style="background: #1774bc;">
+                @if(isset($emailidlist))
+  @if(!$emailidlist->isEmpty())
+  @foreach($emailidlist as $emailiddatalist)
+              <a href="mailto:{{$emailiddatalist->email}}">
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <p>Email Us</p>
+              </a>
+                  @endforeach
+  @endif
+  @endif
+          </div>
+          <div class="col">
+              <a href="{{url('/schedule-a-consultation')}}">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  <p>Appointment</p>
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="{{$public_url}}js/bootstrap-datepicker.js"></script>
+<script src="{{$public_url}}js/custom.js"></script>
+<script type="text/javascript">
+var $ = jQuery;
+/**** datepicker ****/
+$(function () {
+$("#date").datepicker({
+autoclose: true,
+todayHighlight: true,
+startDate: '-0m',
+//daysOfWeekDisabled: [0]
+})
+});
+AOS.init({
+duration: 1200,
+});
+</script>
+</body>
+</html>

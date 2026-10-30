@@ -1,0 +1,188 @@
+{{ App\Http\Controllers\AppLaunchController::CommanHeader(); }}
+@php
+ $public_url="";
+ if(isset(session('userorginfo')['site_url'])){
+ $public_url = session('userorginfo')['site_url'];
+ }
+@endphp
+
+  <!-- Start Banner -->
+  <div class="innerHeader">
+     
+    <div class="container-fluid">
+<div class="BreadCrumb" data-aos="fade-up"><a href="{{url('/')}}">Home</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a>About Clinic</a></div>
+@if(!$aboutlist->isEmpty())
+@foreach($aboutlist as $aboutlistsec)
+<div class="row pt-3" data-aos="fade-up">
+  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12"><img src="{{$public_url}}backend/about/{{$aboutlistsec->image}}" class="img-fluid clinicPic" alt=""></div>
+  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+    <div class="sctinSmlTxt">{{$aboutlistsec->name}}</div>
+    <div class="sctinHd">{{$aboutlistsec->heading1}}</div>
+    <p>{!! $aboutlistsec->section1 !!}</p>
+  </div>
+</div>
+@endforeach
+@endif
+
+</div>
+  </div>
+  <!-- End Banner -->
+ 
+
+
+  @if(!$aboutlist->isEmpty())
+@foreach($aboutlist as $aboutlistsec)
+  <section class="sectionbx">
+    <div class="container-fluid" data-aos="fade-up">
+  
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"></div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="sctinHd">{!! $aboutlistsec->section2 !!}</div>
+      <!-- <p class="pb-3">‘Aestiva’ is a Latin word which is related to Summer and Summer is
+      the best season to flaunt your beauty. Being perfectly shaped and
+      beautiful is not about luck anymore but it’s a decision that you can
+      make. You can choose to be in your ideal shape with world class
+      plastic and cosmetic surgery treatments at the Aestiva Plastic
+      Surgery Clinic.</p>      
+      <p>Established by Dr. Mrinalini Sharma, this premier plastic surgery clinic
+      has been providing a vast number of cosmetic and plastic surgery
+      treatments in Delhi NCR. Plastic Surgery is quite different from other
+      medical fields as the final outcomes depend on the doctor’s
+      understanding of your ultimate goals from a specific plastic or
+      cosmetic surgery treatment.</p> -->
+    </div>
+
+      </div>
+</div>
+</section>
+
+
+<section class="sectionbx">
+  <div class="container-fluid" data-aos="fade-up">
+        <div class="row align-items-center">
+          
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="abtRghtSpc">
+            <p class="sctinSmlTxt">{{$aboutlistsec->heading2}}</p>
+            <div class="sctinHd">{!! $aboutlistsec->section3 !!}</div>
+            <!-- <p class="pb-3">Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.</p> -->
+
+            <div class="row">
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <ul class="arrowListIcon pb15">
+                {!! $aboutlistsec->section4 !!}
+                </ul>
+              </div>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <ul class="arrowListIcon pb15">
+                {!! $aboutlistsec->section5 !!}
+                </ul>
+              </div>
+            </div>
+              <div><a href="schedule-a-consultation" class="btn-appointment">Book An Appointment</a></div>
+</div>
+          </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"><img src="{{$public_url}}images/why-choose-aestiva-clinic.jpg" class="img-fluid w-100" alt="why choose aestiva clinic"></div>
+        </div>
+    </div>
+  </section>
+  @endforeach
+@endif
+
+
+  <section class="sectionbx abtClinicWhatWeDo">
+    <div class="container-fluid">
+  <div class="sctinHd text-center" data-aos="fade-up">What We Do</div>
+  <p class="sctinSmlTxt text-center" data-aos="fade-up">We Are Offering Reliable Services</p>
+      <div class="row pt-4 justify-content-around">
+
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up">
+          <div class="abtClinicWhatWeDoItem">
+          <figure class="figure">
+            <a href="#"><img src="{{$public_url}}images/closed-rhinoplasty.jpg" class="img-fluid" alt="Closed Rhinoplasty"></a>
+          </figure>
+          <div class="wwdCntnr">
+          <p class="wwdItemHD">Closed Rhinoplasty</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and industry.
+          Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an the unknown printer...<a href="#">Read More</a></p>
+          </div>
+          </div>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up">
+          <div class="abtClinicWhatWeDoItem">
+            <figure class="figure">
+              <a href="#"><img src="{{$public_url}}images/open-rhinoplasty.jpg" class="img-fluid" alt="Open Rhinoplasty"></a>
+            </figure>
+            <div class="wwdCntnr">
+              <p class="wwdItemHD">Open Rhinoplasty</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s, when an the unknown printer...<a href="#">Read More</a></p>
+            </div>
+          </div>
+        </div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up">
+  <div class="abtClinicWhatWeDoItem">
+    <figure class="figure">
+    <a href="#"> <img src="{{$public_url}}images/secondary-rhinoplasty-2.jpg" class="img-fluid" alt="Secondary Rhinoplasty"></a>
+    </figure>
+    <div class="wwdCntnr">
+      <p class="wwdItemHD">Secondary Rhinoplasty</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and industry.
+        Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an the unknown printer...<a href="#">Read More</a></p>
+    </div>
+  </div>
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up">
+  <div class="abtClinicWhatWeDoItem">
+    <figure class="figure">
+      <a href="#"><img src="{{$public_url}}images/non-surgical-rhinoplasty.jpg" class="img-fluid" alt="Non-Surgical rhinoplasty"></a>
+    </figure>
+    <div class="wwdCntnr">
+      <p class="wwdItemHD">Non-Surgical rhinoplasty</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and industry.
+        Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an the unknown printer...<a href="#">Read More</a></p>
+    </div>
+  </div>
+</div>
+
+      </div>
+<div class="text-center mt-3" data-aos="fade-up"><a href="#" class="readMore">View All</a></div>
+    </div>
+  </section>
+
+
+
+
+
+
+<section class="sectionbx AppointmentSctn">
+  <div class="container-fluid" data-aos="fade-up">
+
+    <div class="row">
+      <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12">
+        <div class="sctinHd text-center">Book An Appointment</div>
+      <p class="pb-4 text-center">CLINIC TIMINGS:<br>
+      {{ App\Http\Controllers\AppLaunchController::ContactDetail(); }} </p>
+        <div class="frmcntnt">      
+        {{ App\Http\Controllers\AppLaunchController::CommanAppointment(); }}   
+      
+      </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+{{ App\Http\Controllers\AppLaunchController::CommanTestimonials(); }}
+
+{{ App\Http\Controllers\AppLaunchController::CommanFooter(); }}

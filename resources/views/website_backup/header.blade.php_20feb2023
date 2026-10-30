@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif</title>
+    <meta name="description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif">
+    <meta name="keywords" content="@if(isset($seotitle->keyword_tag)){{$seotitle->keyword_tag}}@endif">
+    <meta property="og:title" content="@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif" />
+    <meta property="og:type" content="@if(isset($seotitle->type)){{$seotitle->type}}@endif" />
+    <meta property="og:image" content="@if(isset($seotitle->image)){{url('/backend/seo/'.$seotitle->image)}}@endif" />
+    <meta property="og:description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif" />
+    <meta property="og:site_name" content="@if(isset($seotitle->site_name)){{$seotitle->site_name}}@endif" />
+    <meta property="og:url" content="{{url()->full()}}" />
+    <meta property="twitter:title" content="@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif" />
+    <meta property="twitter:type" content="@if(isset($seotitle->type)){{$seotitle->type}}@endif" />
+    <meta property="twitter:image" content="@if(isset($seotitle->image)){{url('/backend/seo/'.$seotitle->image)}}@endif" />
+    <meta property="twitter:description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif" />
+    <meta property="twitter:site_name" content="@if(isset($seotitle->site_name)){{$seotitle->site_name}}@endif" />
+    <meta property="twitter:url" content="{{url()->full()}}" />
+    <link rel="canonical" href="{{url()->full()}}" />
+
+
+  <link rel="icon" type="image/x-icon" href="{{url('website/assets/images/fav.jpg')}}">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" as="style"
+    onload='this.rel="stylesheet"'>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@100;400;500;600;700;800&display=swap"
+    as="style" onload='this.rel="stylesheet"' crossorigin>
+  <link rel="preload" href="https://use.typekit.net/rgk7pcz.css" as="style" onload='this.rel="stylesheet"' crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" as="style"
+    onload='this.rel="stylesheet"'>
+  <link rel="preload"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" as="style"
+    onload='this.rel="stylesheet"'>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    as="style" onload='this.rel="stylesheet"'>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    as="style" onload='this.rel="stylesheet"'>
+  <link rel="stylesheet" type="text/css" media="only screen and (min-device-width:768px)"
+    href="{{ url('website/assets/css/desktopglo.css') }}">
+  <link rel="stylesheet" type="text/css" media="only screen and (min-device-width:1025px)"
+    href="{{ url('website/assets/css/desktop.css')}}">
+  <link rel="stylesheet" type="text/css" media="only screen and (min-width:768px) and (max-width:1024px)"
+    href="{{ url('website/assets/css/tab.css')}}">
+  <link rel="stylesheet" type="text/css" media="only screen and (min-width:100px) and (max-width:767px)"
+    href="{{ url('website/assets/css/mobile.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ url('website/assets/css/global.css')}}">
+   <!--Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N53JXXK');</script>
+ <!--End Google Tag Manager -->
+ 
+ <!-- Local Organisation ---->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Advance Skin Hair and Laser Clinic",
+  "image": "https://www.advanceskinhairclinic.com/website/assets/images/logo.png",
+  "@id": "",
+  "url": "https://www.advanceskinhairclinic.com/",
+  "telephone": "+91-7061400830, +91-7667445571",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arya Kumar Road, Near Dinkar Golambar, Rajendra Nagar, Patna",
+    "addressLocality": "Patna",
+    "postalCode": "800016",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "10:00",
+    "closes": "19:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/AdvanceSkinHairLASERClinic/",
+    "https://twitter.com/AdvanceHairSkin",
+    "https://www.youtube.com/channel/UCs3__EY-lUnIegih5ziKhIA/featured"
+  ] 
+}
+</script>
+<!-- Local Organisation ---->
+<!--- organization Schema--->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Advance Skin Hair & LASER Clinic",
+  "url": "https://www.advanceskinhairclinic.com",
+  "logo": "https://www.advanceskinhairclinic.com/website/assets/images/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/AdvanceSkinHairLASERClinic/",
+    "https://twitter.com/AdvanceHairSkin",
+    "https://www.youtube.com/channel/UCs3__EY-lUnIegih5ziKhIA/featured"
+  ]
+}
+</script>
+<!-- organization schema-->
+<!-- Person Schema --->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "Dr. Punkesh Kumar",
+  "url": "https://www.advanceskinhairclinic.com/",
+  "image": "https://www.advanceskinhairclinic.com/website/assets/images/dr.punkesh.jpg",
+  "jobTitle": "Dermatologist",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Advance Skin, Hair And Laser Clinic"
+  }  
+}
+</script>
+<!-- Person Schema --->
+</head>
+<body>
+     <!--Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N53JXXK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!--End Google Tag Manager (noscript) -->
+  <header class="nav-mob">
+    <div class="container-fluid">
+      <div class="container con_cus">
+        <div class="row">
+          <div class="mob-con">
+            <div class="logo">
+              <a href="{{ url('/')}}" alt="">
+                <img data-src="{{ url('website/assets/images/logo.png')}}" alt="Dr. Punkesh" class="lazyload">
+              </a>
+            </div>
+            <div class="burger-ico">
+              <span style="cursor:pointer" onclick="openNav()">
+                <i class="fa-solid fa-bars"></i>
+              </span>
+              <div id="mySidenav" class="sidenav" style="width:0">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                  <i class="fa-solid fa-xmark"></i>
+                </a>
+                <div class="sidebar-navigation">
+                  <ul>
+                    <li>
+                      <a href="{{ url('/')}}" alt="">Home</a>
+                    </li>
+                    <li>
+                      <a href="" alt="">About <em class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                      </a>
+                      <ul class="subMenuColor1">
+                        <li class="selected--last">
+                          <a href="{{ url('/about-doctor')}}" alt="" style="padding-left:52px">Dr. Punkesh</a>
+                        </li>
+                        <li class="selected--last">
+                          <a href="{{ url('/about-clinic')}}" alt="" style="padding-left:52px">About Clinic</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="{{ url('/treatments')}}">Treatments <em class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                      </a>
+                      <ul class="subMenuColor1">
+                        <li>
+                          <a href="{{ url('treatments/pigments-&-spots')}}" style="padding-left:52px">Pigments & Spots <em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                          <li><a href="{{ url('helios-ndyag')}}" style="padding-left:72px">Helios NDYAG </a></li>
+                          <li><a href="{{ url('chemical-peels')}}" style="padding-left:72px">Chemical Peels </a></li>
+                            <li><a href="{{ url('pigmentation')}}" style="padding-left:72px">Pigmentation</a></li>
+                            <li><a href="{{ url('melasma')}}" style="padding-left:72px">Melasma</a></li>
+                            <li><a href="{{ url('freckle')}}" style="padding-left:72px">Freckle</a></li>
+                            <li><a href="{{ url('laser-toning')}}" style="padding-left:72px">Laser Toning</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Carbon Peel</a></li>
+                           
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Sun Damage & Spots</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Age Spots</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Lip Pigmentation/Toning</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Dark Spots</a></li>
+                           
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/acne-and-skin-resurfacing') }}" style="padding-left:52px">Acne & Skin Resurfacing <em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                              <li><a href="{{ url('acne')}}" style="padding-left:72px">Acne Treatment</a></li>
+                          <li><a href="{{url('vivace-mnrf') }}" style="padding-left:72px">MNRF Vivace</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Acne Scar Reduction</a></li>
+                            <li><a href="{{ url('rosacea')}}" style="padding-left:72px">Rosacea</a></li>                       
+                            <li><a href="{{ url('fractional-co2')}}" style="padding-left:72px">Fractional CO2</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Open Pores</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Stretch Marks Removal</a>
+                            <li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/unwanted-hair')}}" style="padding-left:52px">Unwanted Hair <em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                             <li><a href="{{url('triple-wavelength-diode')}}" style="padding-left:72px">Triple Wavelength Diode</a></li>
+                             <li><a href="{{url('laser-hair-removal')}}" style="padding-left:72px">Laser Hair Removal</a></li>
+                              <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Alexandrite</a></li>
+                              <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Full body laser</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Under Arms Hair Removal</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Facial Hair Removal</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Legs Hair Removal</a></li>
+
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{ url('/treatments/hair-care')}}" style="padding-left:52px">Hair Care<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{ url('hairfall-treatment') }}" style="padding-left:72px">Hairfall Treatment</a></li>
+                            <li><a href="{{ url('growth-factor-therapy-for-hair-loss') }}" style="padding-left:72px">Growth Factor concentrate</a></li>
+                            <li><a href="{{ url('mesotherapy')}}" style="padding-left:72px">Mesotherapy</a></li>
+                            <li><a href="{{ url('dandruff-treatment') }}" style="padding-left:72px">Dandruff</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Alopecia Areata Treatment</a></li>
+                            <li><a href="{{ url('lllt') }}" style="padding-left:72px">LLLT</a></li>
+                            <!-- <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Hair Transplant</a></li> -->
+                            <li><a href="{{ url('dermapen')}}" style="padding-left:72px">Dermapen</a></li>                            
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Premature Greying</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Scarring Alopecia</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Hair Analyser</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Scalp Micropigmentation</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/facial-rejuvenation')}}" style="padding-left:52px">Facial Rejuvenation<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{url('peeling')}}" style="padding-left:72px">Peeling</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">MDA</a></li>
+                            <li><a href="{{ url('photofacial')}}" style="padding-left:72px">Photofacial</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Under Eye Dark Circle</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Pollogen</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Under Eye Hollowness</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/ageing-skin')}}" style="padding-left:52px">Ageing Skin<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{ url('sagging-skin')}}" style="padding-left:72px">Sagging Skin</a></li>
+                            <li><a href="{{ url('wrinkles')}}" style="padding-left:72px">Wrinkles</a></li>
+                            <li><a href="{{ url('anti-ageing-facial')}}" style="padding-left:72px">Anti Ageing Facial</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Age Spots</a></li>
+                            <li><a href="{{ url('crows-feet')}}" style="padding-left:72px">Crow's Feet</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Deep Folds</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Forehead Lines</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/facial-lift-and-contouring')}}" style="padding-left:52px">Facial Lift & Contouring<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                          <li><a href="{{ url('anti-wrinkle-injection') }}" style="padding-left:72px">Anti Wrinkle Injection</a></li>
+                            <!-- <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Dermal Filler</a></li>                            -->
+                            <li><a href="{{ url('anti-ageing-facial')}}" style="padding-left:72px">Anti Ageing Facial</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Jawline Contouring</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Chin Enhancement</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Lip Enhancement</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Cheek Enhancement</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/skin-glow-and-brightening')}}" style="padding-left:52px">Skin Glow & Brightening<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                          <li><a href="{{ url('peeling')}}" style="padding-left:72px">Peeling</a></li>
+                          <li><a href="{{ url('hydrafacial')}}" style="padding-left:72px">Hydrafacial</a></li>
+                            <li><a href="{{ url('oxygeneo-treatment')}}" style="padding-left:72px">Oxygeneo Treatment</a></li>
+                            <li><a href="{{ url('laser-toning')}}" style="padding-left:72px">Laser Toning</a></li>   
+                            <li><a href="{{ url('omega-3')}}" style="padding-left:72px">Omega 3</a></li>                           
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">MDA</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/facial')}}" style="padding-left:52px">Facials<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                          <li><a href="{{ url('oxygeneo-treatment')}}" style="padding-left:72px">Oxygeneo Treatment</a></li>
+                            <li><a href="{{ url('hydrafacial')}}" style="padding-left:72px">Hydrafacial</a></li>
+                            <li><a href="{{url('photofacial')}}" style="padding-left:72px">Photofacial</a></li>
+                            <li><a href="{{url('bb-glow-treatment')}}" style="padding-left:72px">BB Glow Facial</a></li>
+                            <li><a href="{{ url('anti-ageing-facial')}}" style="padding-left:72px">Anti Ageing Facial</a></li>                            
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Laser Facials</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Power Facial</a></li>
+                         
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{ url('treatments/allergies')}}" style="padding-left:52px">Allergies<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{ url('skin-allergies')}}" style="padding-left:72px">Skin Allergies</a></li>
+                            <li><a href="{{ url('eczema')}}" style="padding-left:72px">Eczema</a></li>
+                            <li><a href="{{ url('urticaria')}}" style="padding-left:72px">Urticaria</a></li>
+                            <li><a href="{{ url('atopic-dermatitis')}}" style="padding-left:72px">Atopic Dermatitis</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{ url('schedule-a-consultation')}}" style="padding-left:52px">Infections<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Fungal Infection</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Skin Infection</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Viral Infection</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Bacterial Infection</a></li>
+
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{ url('schedule-a-consultation')}}" style="padding-left:52px">Skin Growth<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{ url('corn-and-calluses')}}" style="padding-left:72px">Corn and Calluses</a></li>
+                            <li><a href="{{ url('skin-tag')}}" style="padding-left:72px">Skin Tags</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Mole</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Warts</a></li>
+
+
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{url('treatments/general-dermatology')}}" style="padding-left:52px">General Dermatology<em
+                              class="mdi mdi-chevron-down fa fa-angle-down"></em>
+                          </a>
+                          <ul class="subMenuColor2">
+                            <li><a href="{{url('vitiligo')}}" style="padding-left:72px">Vitiligo</a></li>
+                            <li><a href="{{ url('psoriasis')}}" style="padding-left:72px">Psoriasis</a></li>
+                            <li><a href="{{ url('atopic-dermatitis')}}" style="padding-left:72px">Atopic Dermatitis</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Keloids</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Nail Disease</a></li>
+                            <li><a href="{{ url('seborrheic-dermatitis')}}" style="padding-left:72px">Seborrheic Dermatitis</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Pseudo Acanthosis Nigricans</a></li>
+                            <li><a href="{{ url('schedule-a-consultation')}}" style="padding-left:72px">Spider Veins</a></li>
+
+
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="{{ url('schedule-a-consultation')}}" >Skin Analyser </a>
+                          
+                        </li>
+                        <li>
+                          <a href="{{ url('body-polish')}}" >Body Polishing</a>                          
+                        </li>
+                      </ul>
+                    </li>                  
+                    
+                    <li>
+                      <a href="{{ url('written-testimonials')}}" alt="">Testimonials</a>
+                    </li>
+                    <li>
+                      <a href="{{ url('clinic-gallery')}}" alt="">Gallery</a>
+                    </li>
+                    <li>
+                      <a href="{{ url('blogs')}}" alt="">Blogs</a>
+                    </li>
+                    <li>
+                      <a href="{{ url('contact-us')}}" alt="">Contact</a>
+                    </li>
+                   
+                     <li>
+                       <a href="{{ url('schedule-a-consultation')}}">
+                    Schedule A Consultation
+                       </a>
+                    </li>  
+                  </ul>
+                </div>
+                <div class="socila-links">
+                  <a href="https://www.facebook.com/AdvanceSkinHairLASERClinic/" target="blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="https://twitter.com/AdvanceHairSkin" target="blank" class="twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <!-- <a href="https://www.instagram.com/advanceskinhair/" target="blank" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a> -->
+                  <a href="https://www.youtube.com/channel/UCs3__EY-lUnIegih5ziKhIA/featured" target="blank"
+                    class="youtube">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </div>
+              <!--   <div class="w-100 p-3">
+                    <center>
+                      <a href="{{ url('schedule-a-consultation')}}">
+                      <button class="appt-btn">Schedule A Consultation</button>
+                       </a>
+                    </center>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <header class="header nav-desktop">
+    <div class="container-fluid">
+      <div class="container con_cus">
+        <div class="row">
+          <div class="header-main">
+            <div class="logo">
+              <a href="{{ url('/')}}" alt="">
+                <img data-src="{{ url('website/assets/images/logo.png')}}" alt="Dr. Punkesh" class="lazyload">
+              </a>
+            </div>
+            <nav class="navbar navbar-expand-md mobile-navbar">
+              <div class="mobile-menu web-view hide-mobileview">
+                <div class="collapse navbar-collapse web-style" id="collapsibleNavbar">
+                  <ul class="navbar-nav web-leftmenu">
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <a href="{{ url('/')}}" alt="">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside" alt="">About</a>
+                      <ul class="dropdown-menu shadow">
+                        <li>
+                          <a class="dropdown-item" href="{{ url('about-doctor')}}" alt="">Dr. Punkesh</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="{{ url('about-clinic')}}" alt="">About Clinic</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="{{ url('/treatments')}}" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-expanded="false">Treatments</a>
+                      <ul class="dropdown-menu shadow">
+                        <li>
+                          <a class="dropdown-item" href="{{url('treatments/pigments-&-spots')}}" alt="">Pigments & Spots<span>»</span></a>
+                          <ul class="dropdown-submenu">
+                            <li><a class="dropdown-item" href="{{ url('helios-ndyag')}}">Helios NDYAG </a></li>
+                            <li><a class="dropdown-item" href="{{ url('chemical-peels')}}">Chemical Peels </a></li>
+                            <li><a class="dropdown-item" href="{{ url('melasma')}}">Melasma</a></li>
+                            <li><a class="dropdown-item" href="{{ url('freckle')}}">Freckle</a></li>
+                            <li><a class="dropdown-item" href="{{ url('laser-toning')}}">Laser Toning</a></li>
+                            <li><a class="dropdown-item" href="{{ url('pigmentation')}}">Pigmentation</a></li>                            
+                            <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Carbon Peel</a></li>                            
+                            <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Sun Damage & Spots</a></li>
+                            <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Age Spots</a></li>
+                            <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Lip Pigmentation/Toning</a></li>
+                            <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Dark Spots</a></li>
+                          
+                          </ul>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/acne-and-skin-resurfacing') }}" alt="">Acne & Skin Resurfacing<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('acne')}}">Acne Treatment</a></li>
+                              <li><a class="dropdown-item" href="{{url('vivace-mnrf') }}">MNRF Vivace</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Acne Scar Reduction</a></li>
+                              <li><a class="dropdown-item" href="{{ url('rosacea')}}">Rosacea</a></li>                                 
+                              <li><a class="dropdown-item" href="{{ url('fractional-co2')}}">Fractional CO2</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Open Pores</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Stretch Marks Removal</a></li>    
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/unwanted-hair')}}" alt="">Unwanted Hair<span>»</span></a>
+                            <ul class="dropdown-submenu">                             
+                             
+                               <li><a class="dropdown-item" href="{{url('triple-wavelength-diode')}}">Triple Wavelength Diode</a></li>
+                               <li><a class="dropdown-item" href="{{url('laser-hair-removal')}}">Laser Hair Removal</a></li>
+                               <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Facial Hair Removal</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Alexandrite</a></li>
+                               <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Full body laser</a></li> 
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Under Arms Hair Removal</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Legs Hair Removal</a></li>
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/hair-care')}}" alt="">Hair Care<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('hairfall-treatment') }}">Hairfall Treatment</a></li>
+                              <li><a class="dropdown-item" href="{{ url('growth-factor-therapy-for-hair-loss') }}">Growth Factor concentrate</a></li>
+                              <li><a class="dropdown-item" href="{{ url('mesotherapy') }}">Mesotherapy</a></li>
+                              <li><a class="dropdown-item" href="{{ url('dandruff-treatment') }}">Dandruff</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Alopecia Areata Treatment</a></li>
+                              <li><a class="dropdown-item" href="{{ url('lllt')}}">LLLT</a></li> 
+                              <!-- <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Hair Transplant</a></li>                              -->
+                              <li><a class="dropdown-item" href="{{ url('dermapen')}}">Dermapen</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Premature Greying</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Scarring Alopecia</a></li>      
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Hair Analyser</a></li>   
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Scalp Micropigmentation</a></li> 
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/facial-rejuvenation')}}" alt="">Facial Rejuvenation<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{url('peeling')}}">Peeling</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">MDA</a></li>
+                              <li><a class="dropdown-item" href="{{ url('photofacial')}}">Photofacial</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Under Eye Dark Circle</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Pollogen</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Under Eye Hollowness</a></li> 
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/ageing-skin')}}" alt="">Ageing Skin<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('sagging-skin')}}">Sagging Skin</a></li>
+                              <li><a class="dropdown-item" href="{{ url('wrinkles')}}">Wrinkles</a></li>
+                              <li><a class="dropdown-item" href="{{ url('anti-ageing-facial')}}">Anti Ageing Facial</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Age Spots</a></li>
+                              <li><a class="dropdown-item" href="{{ url('crows-feet')}}">Crow's Feet</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Neck Lines</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Deep Folds</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Forehead Lines</a></li> 
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/facial-lift-and-contouring')}}" alt="">Facial Lift & Contouring<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('anti-wrinkle-injection') }}">Anti Wrinkle Injection</a></li>
+                              <!-- <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Dermal Filler</a></li>                              -->
+                              <li><a class="dropdown-item" href="{{ url('anti-ageing-facial')}}">Anti Ageing Facial</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Jawline Contouring</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Chin Enhancement</a></li> 
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Lip Enhancement</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Cheek Enhancement</a></li>                            
+                            </ul>
+  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/skin-glow-and-brightening')}}" alt="">Skin Glow & Brightening<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                            <li><a class="dropdown-item" href="{{ url('peeling')}}">Peeling</a></li>
+                               <li><a class="dropdown-item" href="{{ url('hydrafacial')}}">Hydrafacial</a></li>
+                              <li><a class="dropdown-item" href="{{ url('oxygeneo-treatment')}}">Oxygeneo Treatment</a></li>
+                              <li><a class="dropdown-item" href="{{ url('laser-toning')}}">Laser Toning</a></li>                             
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">MDA</a></li> 
+                              <li><a class="dropdown-item" href="{{ url('omega-3')}}">Omega 3</a></li>   
+                            </ul>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/facial')}}" alt="">Facials<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                            <li><a class="dropdown-item" href="{{ url('oxygeneo-treatment')}}">Oxygeneo Treatment</a></li> 
+                              <li><a class="dropdown-item" href="{{url('photofacial')}}">Photofacial</a></li>
+                              <li><a class="dropdown-item" href="{{url('bb-glow-treatment')}}">BB Glow Facial</a></li>
+                              <li><a class="dropdown-item" href="{{ url('hydrafacial')}}">Hydrafacial</a></li>                            
+                              <li><a class="dropdown-item" href="{{ url('anti-ageing-facial')}}">Anti Ageing Facial</a></li>                            
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Laser Facials</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Power Facial</a></li>
+                            </ul>  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/allergies')}}" alt="">Allergies<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('skin-allergies')}}">Skin Allergies</a></li>
+                              <li><a class="dropdown-item" href="{{ url('eczema')}}">Eczema</a></li>
+                              <li><a class="dropdown-item" href="{{ url('urticaria')}}">Urticaria</a></li>
+                              <li><a class="dropdown-item" href="{{ url('atopic-dermatitis')}}">Atopic Dermatitis</a></li>                             
+                                                    
+                            </ul>
+  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{ url('schedule-a-consultation')}}" alt="">Infections<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Fungal Infection</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Skin Infection</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Viral Infection</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Bacterial Infection</a></li>                             
+                                                    
+                            </ul>
+  
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{ url('schedule-a-consultation')}}" alt="">Skin Growth<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{ url('corn-and-calluses')}}">Corn and Calluses</a></li>
+                              <li><a class="dropdown-item" href="{{ url('skin-tag')}}">Skin Tags</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Mole</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Warts</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{url('treatments/general-dermatology')}}" alt="">General Dermatology<span>»</span></a>
+                            <ul class="dropdown-submenu">
+                              <li><a class="dropdown-item" href="{{url('vitiligo')}}">Vitiligo</a></li>
+                              <li><a class="dropdown-item" href="{{ url('psoriasis')}}">Psoriasis</a></li>
+                              <li><a class="dropdown-item" href="{{ url('atopic-dermatitis')}}">Atopic Dermatitis</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Keloids</a></li>  
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Nail Disease</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Contact Dermatitis</a></li>
+                              <li><a class="dropdown-item" href="{{ url('seborrheic-dermatitis')}}">Seborrheic Dermatitis</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Pseudo Acanthosis Nigricans</a></li>
+                              <li><a class="dropdown-item" href="{{ url('schedule-a-consultation')}}">Spider Veins</a></li>                             
+                                                    
+                            </ul>
+  
+                          </li>
+                          <li>
+                          <a href="{{ url('schedule-a-consultation')}}">Skin Analyser</a>
+                          
+                        </li>
+                        <li>
+                          <a href="{{ url('body-polish')}}">Body Polishing</a>
+                          
+                        </li>
+
+
+
+                        </li>
+                       
+                      </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('written-testimonials')}}" alt="">Testimonials</a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{{ url('clinic-gallery')}}" alt="">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('blogs')}}" alt="">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('contact-us')}}" alt="">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <div class="header-btn">
+              <a href="{{ url('schedule-a-consultation')}}">
+                <button class="appt-btn">Schedule A Consultation</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

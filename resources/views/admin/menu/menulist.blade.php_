@@ -1,0 +1,44 @@
+{{-- layout --}}
+@extends('layouts.fullLayoutMaster')
+
+{{-- page title --}}
+@section('title','Menu List')
+
+{{-- page content --}}
+@section('content')
+
+<a class="waves-effect waves-light btn mr-1 fl-ri" href="{{ url('organization') }}">Home</a>
+<div class="section">
+<div class="card">
+        <div class="card-content textalign">
+        <a class="waves-effect waves-light btn mr-1" href="{{ url('add-menu') }}">Add Menu</a>
+        </div>
+</div>
+    <div class="card">
+        <div class="card-content">
+        <div class="table-responsive">
+<table  id="page-length-option" class="display">
+<thead>
+  <tr>
+    <th>Menu Name</th>
+    <th>Menu URL</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach($view as $viewlist)
+  <tr>
+    <td>{{$viewlist->mnu_name}}</td>
+    <td>{{$viewlist->mnu_url}}</td>
+    <td><a class="waves-effect waves-light btn mr-1 fl-ri" href="{{ url('edit-menu/'.$viewlist->mnu_id) }}">Edit</a>
+    <a class="waves-effect waves-light btn mr-1 fl-ri" href="{{ url('delete-menu/'.$viewlist->mnu_id) }}">Delete</a>
+    </td>
+  </tr>
+  @endforeach
+  </tbody>
+</table>
+</div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -1,0 +1,145 @@
+<?php
+$public_url="";
+if(isset(session('userorginfo')['site_url'])){
+ $public_url = session('userorginfo')['site_url'];
+}
+
+?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" type="image/x-icon" href="https://www.hairskinprp.co.uk/template/hairskinprp_co_uk/images/favicon.ico">
+<title>@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif</title>
+<meta name="description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif">
+<meta name="keywords" content="@if(isset($seotitle->keyword_tag)){{$seotitle->keyword_tag}}@endif">
+<meta property="og:title" content="@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif"/>
+<meta property="og:type" content="@if(isset($seotitle->type)){{$seotitle->type}}@endif" />
+<meta property="og:image" content="@if(isset($seotitle->image)){{$seotitle->image}}@endif" />
+<meta property="og:description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif" />
+<meta property="og:site_name" content="@if(isset($seotitle->site_name)){{$seotitle->site_name}}@endif" />
+<meta property="og:url" content="@if(isset($seotitle->canonical_tag)){{$seotitle->canonical_tag}}@endif"/>
+<meta property="twitter:title" content="@if(isset($seotitle->title_tag)){{$seotitle->title_tag}}@endif"/>
+<meta property="twitter:type" content="@if(isset($seotitle->type)){{$seotitle->type}}@endif" />
+<meta property="twitter:image" content="@if(isset($seotitle->image)){{$seotitle->image}}@endif" />
+<meta property="twitter:description" content="@if(isset($seotitle->description_tag)){{$seotitle->description_tag}}@endif" />
+<meta property="twitter:site_name" content="@if(isset($seotitle->site_name)){{$seotitle->site_name}}@endif" />
+<meta property="twitter:url" content="@if(isset($seotitle->canonical_tag)){{$seotitle->canonical_tag}}@endif"/>
+<link rel="canonical" href="@if(isset($seotitle->canonical_tag)){{$seotitle->canonical_tag}}@endif" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="{{$public_url.'css/style.css'}}" rel="stylesheet">
+<link href="{{$public_url.'css/datepicker.css'}}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body> 
+<!-- Header Start --> 
+<header>
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-4" data-aos="fade-up">
+  <a href="/">
+    <img src="{{$public_url}}backend/logo/@if(isset($headerlogo->header_logo)){{$headerlogo->header_logo}}@endif" class="logoicn" alt="@if(isset($headerlogo->alt_tag)){{$headerlogo->alt_tag}}@endif" />
+    <img src="{{$public_url}}backend/logo/@if(isset($headerlogo->header_logo2)){{$headerlogo->header_logo2}}@endif" class="logoscroll" alt="@if(isset($headerlogo->alt_tag)){{$headerlogo->alt_tag}}@endif" />
+  </a>
+</div>
+<div class="col-lg-10 col-md-10 col-8">
+
+<div class="col hrdTop"><span> <a href="Tel:+918447652698">+91 8447652698</a>&nbsp; &nbsp;</span> <a href="Mailto:info@aestiva.com">info@aestiva.com</a></div>
+
+
+
+
+  <!-- Start Mobile navigation -->
+<div class="mobile_navigation">
+<nav class="main-nav float-right d-none d-lg-none">
+<ul>
+<li>
+<a href="index.html" class="mlogobx"><img src="{{$public_url}}backend/logo/@if(isset($headerlogo->header_logo)){{$headerlogo->header_logo}}@endif" alt="@if(isset($headerlogo->alt_tag)){{$headerlogo->alt_tag}}@endif"/> </a>
+</li>
+<li><a href="/">HOME</a></li>
+<li class="drop-down"><a href="#">ABOUT US</a>
+<ul>
+<li><a href="#">About Doctor</a></li>
+<li><a href="#">About Clinic</a></li>
+</ul>
+</li>
+<li class="drop-down"><a href="#">SERVICES</a>
+<ul>
+<li><a href="#">Service 1</a></li>
+<li class="drop-down"><a href="#">Service 2</a>		
+<ul>
+<li><a href="#">Service 2.1</a></li>
+</ul>
+</li>
+</ul></li>	
+<li><a href="#">TESTIMONIALS</a></li>
+<li><a href="#">REAL RESULTS</a></li>
+<li><a href="#">BLOGS</a></li>
+<li><a href="#">CONTACT US</a></li>
+</ul>
+<div class="col-lg-4 col-md-4 col-sm-12 text-center">
+<ul class="social-network socialsdmnu">
+<li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a class="waves-effect waves-dark" href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a class="waves-effect waves-dark" href="#"><i class="fa fa-youtube-play"></i></a></li>
+</ul>
+</div>
+</nav>
+</div>
+<!-- End Mobile navigation -->
+<nav class="navbar navbar-expand-md dsktp">
+    <div class="collapse navbar-collapse  justify-content-end mnmenu" id="navbarCollapse">
+      <ul class="navbar-nav">
+      @foreach($firstmenu as $key => $firstmenulist)        
+        @if($firstmenulist->dropdown=='Yes')
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="one{{$key}}" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" href="{{url($firstmenulist->urllink)}}">{{$firstmenulist->name}}</a>
+            <div class="dropdown-menu smlwdth" aria-labelledby="one{{$key}}">
+          @foreach($firstmenulist->children as $key => $secondmenulist)
+          @if($firstmenulist->mnu_id==$secondmenulist->parent_id)
+          <ul>
+          @if($secondmenulist->dropdown=='Yes')
+          <li><a class="dropdown-item" href="{{url($secondmenulist->urllink)}}">{{$secondmenulist->name}} <i class="fa fa-sort-down"></i></a>
+          <ul class="ddrpdwn">
+          @foreach($secondmenulist->children as $key => $thirdmenulist)
+          @if($secondmenulist->mnu_id==$thirdmenulist->parent_id)
+                  <li><a class="dropdown-item" href='{{url("services/".$firstmenulist->thirdmenulist)}}'>{{$thirdmenulist->name}}</a></li> 
+              @endif
+            @endforeach
+            </ul>
+              </li>
+            @else
+            <li><a class="dropdown-item" href='{{url($secondmenulist->urllink)}}'>{{$secondmenulist->name}}</a></li>
+            @endif
+            </ul>
+            @endif
+            @endforeach
+</div>
+      </li>
+        @else
+        <a class="nav-link" href='{{url($firstmenulist->urllink)}}'>{{$firstmenulist->name}}</a>
+        @endif
+        @endforeach
+
+        <li class="nav-item"><a class="nav-link btn-appointment" href="schedule-a-consultation">Book An Appointment</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+</div>
+</header>
+
+
+
+<!-- Header End -->

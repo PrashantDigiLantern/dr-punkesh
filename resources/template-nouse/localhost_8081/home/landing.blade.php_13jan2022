@@ -1,0 +1,390 @@
+{{ App\Http\Controllers\AppLaunchController::CommanHeader(); }}
+@php
+$public_url="";
+if(isset(session('userorginfo')['site_url'])){
+$public_url = session('userorginfo')['site_url'];
+}
+@endphp
+
+@if(!$slider->isEmpty())
+@php
+$count = count($slider);
+@endphp
+
+<!-- Banner Slider End -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+        @foreach($slider as $key => $sliderlist)
+          <div class="carousel-item <?php if($key=='0'){echo 'active';}?>">
+            <img src="{{$public_url.'backend/slider/'.$sliderlist->image}}" class="d-block w-100" alt="banner 1">
+            <div class="carousel-caption bannercaption d-none d-md-block">
+                <div class="bnrCptnOne">{{$sliderlist->name}}</div>
+                <div class="bnrCptnOne">{!!$sliderlist->description!!}</div>
+                @if($sliderlist->button_type=='Yes')
+                <a href="{{url('/'.$sliderlist->button_url)}}" class="btn btn-appointmentBnr" style="<?php echo $sliderlist->button_url; ?>">{{$sliderlist->button_name}}</a>
+                @endif
+              </div>
+          </div>
+       
+          @endforeach
+        </div>
+        @if(count($slider) > 1)
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon prvicon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+          <span class="carousel-control-next-icon nxticon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        @endif
+      </div>
+<!-- Banner Slider End -->
+@endif
+
+
+
+<!-- Start vHIGHEST QUALITY CARE-->
+<section class="sectionbx">
+<div class="container-fluid" data-aos="fade-up">
+
+<div class="row">
+  <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 col-sm-12 col-xs-12 text-center">
+    <p class="sctinSmlTxt">HIGHEST QUALITY CARE</p>
+  <div class="sctinHd">Complete Nose Care Solutions in One Place</div>
+<p class="pb-3">Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+to make a type specimen book. industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <ul class="arrowListIcon">
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna aliqua.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna aliqua.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna aliqua.</li>
+    </ul>
+  </div>
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <ul class="arrowListIcon">
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+              aliqua.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+              aliqua.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+              aliqua.</li>
+          </ul>
+        </div>
+              <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <ul class="arrowListIcon">
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+                    aliqua.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+                    aliqua.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore magna
+                    aliqua.</li>
+                </ul>
+              </div>
+</div>
+
+</div>
+</section>
+<!-- End vHIGHEST QUALITY CARE-->
+
+<!-- Start HOW CAN WE HELP YOU? -->
+<section class="sectionbx helpSteps">
+<div class="container-fluid" data-aos="fade-up">
+<div class="sctinHd text-center">HOW CAN WE HELP YOU?</div>
+
+<div class="tab-content helpStepsTab">
+<div class="tab-pane fade show active" id="stepOne" role="tabpanel" aria-labelledby="stepOne-tab">
+<ul class="nav stepTabs TabsBrdr justify-content-center" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link btn-primary active disabled" id="stepOne-tab" data-bs-toggle="tab" data-bs-target="#stepOne"
+      type="button" role="tab" aria-controls="stepOne" aria-selected="false"> </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link btn-primary disabled" id="stepTwo-tab" data-bs-toggle="tab" data-bs-target="#stepTwo"
+      type="button" role="tab" aria-controls="stepTwo" aria-selected="false"> </button>
+  </li>
+</ul>
+<div class="row text-center row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-5 row-cols-xl-5">
+<div class="col helpStepsItem">  
+  <div class="circleBox">          
+    <img src="{{$public_url}}images/bulbous-tip.png" class="img-fluid" alt=""></div>
+  <p>BULBOUS TIP</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/wide-nose.png" class="img-fluid" alt=""></div>
+  <p>WIDE NOSE</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/deviated-septum.png" class="img-fluid" alt=""></div>
+  <p>DEVIATED SEPTUM</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/large-nostrils.png" class="img-fluid" alt=""></div>
+  <p>LARGE NOSTRILS</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/crooked-nose.png" class="img-fluid" alt=""></div>
+  <p>CROOKED NOSE</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/big-nose.png" class="img-fluid" alt=""></div>
+  <p>BIG NOSE</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/flat-nose.png" class="img-fluid" alt=""></div>
+  <p>FLAT NOSE</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/dorsal-hump.png" class="img-fluid" alt=""></div>
+  <p>DORSAL HUMP</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/drooping-nasal-tip.png" class="img-fluid" alt=""></div>
+  <p>DROOPING NASAL TIP</p>
+</div>
+<div class="col helpStepsItem">
+  <div class="circleBox"><img src="{{$public_url}}images/upturned-nasal-tip.png" class="img-fluid" alt=""></div>
+  <p>UPTURNED NASAL TIP</p>
+</div>
+</div>
+<ul class="nav stepTabs justify-content-center" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link btn-primary" id="stepTwo-tab" data-bs-toggle="tab" data-bs-target="#stepTwo" type="button"
+      role="tab" aria-controls="stepTwo" aria-selected="false">NEXT</button>
+  </li>
+</ul>
+</div>
+<div class="tab-pane fade" id="stepTwo" role="tabpanel" aria-labelledby="stepTwo-tab">
+  <ul class="nav stepTabs TabsBrdr justify-content-center" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link btn-primary disabled" id="stepOne-tab" data-bs-toggle="tab" data-bs-target="#stepOne"
+        type="button" role="tab" aria-controls="stepOne" aria-selected="false"> </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link btn-primary active disabled" id="stepTwo-tab" data-bs-toggle="tab" data-bs-target="#stepTwo"
+        type="button" role="tab" aria-controls="stepTwo" aria-selected="false"> </button>
+    </li>
+  </ul>
+<div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-12">
+{{ App\Http\Controllers\AppLaunchController::CommanAppointment(); }}   
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+<!-- End HOW CAN WE HELP YOU? -->
+
+
+<!-- Start Types of Rhinoplasty -->
+<section class="sectionbx typeRhinoplasty">
+<div class="container-fluid" data-aos="fade-up">
+<div class="sctinHd text-center">Types of Rhinoplasty</div>
+<p class="text-center text-uppercase">Looking for a Nose Job Specialist Near You?</p>
+
+
+<div class="nav nav-tabs typeTab justify-content-between" role="tablist">
+<button class=" active" id="TypeOne-tab" data-bs-toggle="tab" data-bs-target="#TypeOne" type="button"
+role="tab" aria-controls="TypeOne" aria-selected="true">Closed Rhinoplasty</button>
+<button class="" id="TypeTwo-tab" data-bs-toggle="tab" data-bs-target="#TypeTwo" type="button"
+role="tab" aria-controls="TypeTwo" aria-selected="false">Open Rhinoplasty</button>
+<button class="" id="TypeThree-tab" data-bs-toggle="tab" data-bs-target="#TypeThree" type="button"
+role="tab" aria-controls="TypeThree" aria-selected="false">Tip Plasty</button>
+<button class="" id="TypeFour-tab" data-bs-toggle="tab" data-bs-target="#TypeFour" type="button" role="tab"
+  aria-controls="TypeFour" aria-selected="false">Secondary Rhinoplasty</button>
+  <button class="" id="TypeFive-tab" data-bs-toggle="tab" data-bs-target="#TypeFive" type="button" role="tab"
+    aria-controls="TypeFive" aria-selected="false">Non-Surgical Rhinoplasty</button>
+</div>
+
+<div class="tab-content">
+<div class="tab-pane fade show active" id="TypeOne" role="tabpanel" aria-labelledby="TypeOne-tab">
+
+<div class="row align-items-center">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}images/secondary-rhinoplasty.jpg"
+class="w-100 img-fluid" alt="">
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+<div class="sctinHd">Closed Rhinoplasty</div>
+<p>Given the complexity of rhinoplasty surgery, some initial procedures may require adjustments, corrections, or modifications . In such a case, a surgeon might have to perform a revision, also known as secondary rhinoplasty. The process could either be open or close depending on the expected new goal.</p>
+<ul class="arrowListIcon ">
+<li>It is a corrective Rhinoplasty done to change the form and / or function of nose after previous Rhinoplasty.</li>
+<li>The patients opt for a revision rhinoplasty if they are unhappy with the results or they seek further changes not originally desired.</li>
+<li>Sometimes a patient desires a “touch up” for minor issues.</li>
+</ul>
+<div><a href="#" class="readMore">Read More</a></div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="TypeTwo" role="tabpanel" aria-labelledby="TypeTwo-tab">
+
+<div class="row align-items-center">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}images/secondary-rhinoplasty.jpg"
+class="w-100 img-fluid" alt="">
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+<div class="sctinHd">Open Rhinoplasty</div>
+<p>Given the complexity of rhinoplasty surgery, some initial procedures may require adjustments, corrections, or
+modifications . In such a case, a surgeon might have to perform a revision, also known as secondary rhinoplasty.
+The process could either be open or close depending on the expected new goal.</p>
+<ul class="arrowListIcon ">
+<li>It is a corrective Rhinoplasty done to change the form and / or function of nose after previous Rhinoplasty.
+</li>
+<li>The patients opt for a revision rhinoplasty if they are unhappy with the results or they seek further changes
+  not originally desired.</li>
+<li>Sometimes a patient desires a “touch up” for minor issues.</li>
+</ul>
+<div><a href="#" class="readMore">Read More</a></div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="TypeThree" role="tabpanel" aria-labelledby="TypeThree-tab">
+
+<div class="row align-items-center">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}images/secondary-rhinoplasty.jpg"
+class="w-100 img-fluid" alt="">
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+<div class="sctinHd">Tip Plasty</div>
+<p>Given the complexity of rhinoplasty surgery, some initial procedures may require adjustments, corrections, or
+modifications . In such a case, a surgeon might have to perform a revision, also known as secondary rhinoplasty.
+The process could either be open or close depending on the expected new goal.</p>
+<ul class="arrowListIcon ">
+<li>It is a corrective Rhinoplasty done to change the form and / or function of nose after previous Rhinoplasty.
+</li>
+<li>The patients opt for a revision rhinoplasty if they are unhappy with the results or they seek further changes
+  not originally desired.</li>
+<li>Sometimes a patient desires a “touch up” for minor issues.</li>
+</ul>
+<div><a href="#" class="readMore">Read More</a></div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="TypeFour" role="tabpanel" aria-labelledby="TypeFour-tab">
+
+<div class="row align-items-center">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}images/secondary-rhinoplasty.jpg"
+class="w-100 img-fluid" alt="">
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+<div class="sctinHd">Secondary Rhinoplasty</div>
+<p>Given the complexity of rhinoplasty surgery, some initial procedures may require adjustments, corrections, or
+modifications . In such a case, a surgeon might have to perform a revision, also known as secondary rhinoplasty.
+The process could either be open or close depending on the expected new goal.</p>
+<ul class="arrowListIcon ">
+<li>It is a corrective Rhinoplasty done to change the form and / or function of nose after previous Rhinoplasty.
+</li>
+<li>The patients opt for a revision rhinoplasty if they are unhappy with the results or they seek further changes
+  not originally desired.</li>
+<li>Sometimes a patient desires a “touch up” for minor issues.</li>
+</ul>
+<div><a href="#" class="readMore">Read More</a></div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="TypeFive" role="tabpanel" aria-labelledby="TypeFive-tab">
+
+<div class="row align-items-center">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}images/secondary-rhinoplasty.jpg"
+class="w-100 img-fluid" alt="">
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+<div class="sctinHd">Non-Surgical Rhinoplasty</div>
+<p>Given the complexity of rhinoplasty surgery, some initial procedures may require adjustments, corrections, or
+modifications. In such a case, a surgeon might have to perform a revision, also known as secondary rhinoplasty.
+The process could either be open or close depending on the expected new goal.</p>
+<ul class="arrowListIcon ">
+<li>It is a corrective Rhinoplasty done to change the form and / or function of nose after previous Rhinoplasty.
+</li>
+<li>The patients opt for a revision rhinoplasty if they are unhappy with the results or they seek further changes
+  not originally desired.</li>
+<li>Sometimes a patient desires a “touch up” for minor issues.</li>
+</ul>
+<div><a href="#" class="readMore">Read More</a></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+<!-- End Types of Rhinoplasty -->
+
+<!-- Start About Doctor -->
+@if(!$doctorlist->isEmpty())
+@foreach($doctorlist as $doctorlistsec)
+<section class="sectionbx hmDctrSctn" style='<?php echo "background-image: url(".$public_url."backend/doctor/".$doctorlistsec->home_image.")"?>'>
+<div class="container-fluid" data-aos="fade-up">
+<div class="row">
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="hmDctrCnt">
+<div class="sctinHd">{{$doctorlistsec->name}}</div> 
+<p>{{$doctorlistsec->short_degree}}</p> 
+<div>{!! substr($doctorlistsec->home_desc, 0, 440).'...' !!}<a href="{{url('/about-doctor')}}" class="rdMore">Read More</a></div>
+<div><a href="schedule-a-consultation" class="btn-appointment">Book An Appointment</a></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+@endforeach
+@endif
+<!-- End About Doctor -->
+
+
+
+@if(!$aboutclinic->isEmpty())
+<!-- Start About Clinic -->
+<section class="sectionbx">
+<div class="container-fluid" data-aos="fade-up">
+
+<div class="row align-items-center">
+@foreach($aboutclinic as $aboutcliniclist)
+  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 p-4"><img src="{{$public_url}}backend/about/{{$aboutcliniclist->image}}" class="w-100 img-fluid" alt="">
+  </div>
+  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 sctnOneLftSpce">
+    <p class="sctinSmlTxt">{{ $aboutcliniclist->name }}</p>
+    <div class="">
+      {!! $aboutcliniclist->home_section !!}<div>
+    <div><a href="{{url('/about-clinic')}}" class="readMore">Read More</a></div>
+  </div>
+  @endforeach
+</div>
+
+</div>
+</section>
+<!-- End About Clinic -->
+@endif
+
+
+
+<!-- Start Book An Appointment -->
+<section class="sectionbx AppointmentSctn">
+<div class="container-fluid" data-aos="fade-up">
+
+<div class="row">
+<div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12">
+  <div class="sctinHd text-center">Book An Appointment</div>
+<p class="pb-4 text-center">CLINIC TIMINGS:<br>
+{{ App\Http\Controllers\AppLaunchController::ContactDetail(); }} </p>
+  <div class="frmcntnt">      
+  {{ App\Http\Controllers\AppLaunchController::CommanAppointment(); }} 
+
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<!-- End Book An Appointment -->
+{{ App\Http\Controllers\AppLaunchController::CommanTestimonials(); }}
+<!-- End Testimonials -->
+
+{{ App\Http\Controllers\AppLaunchController::CommanFooter(); }}

@@ -1,0 +1,83 @@
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+<a href="{{url('admin/dashboard')}}" class="logo">
+    
+@if(session('useradmin')['super_org_id']=='1')
+<img style="padding-left: 0px; width: 74%;" src="{{url('/images/home-logo.png')}}">
+@else
+@if(session('userinfo')['org_logo']!=NULL)
+<img src="{{$_SERVER['BACK_FRONT'].'images/orgnization/'.session('userinfo')['org_logo']}}" style="width:158px;height:33px;">
+@else
+{{session('userinfo')['user_org_name']}}
+@endif
+@endif
+
+</a>
+<div class="sidebar-toggle-box">
+    <div class="fa fa-bars"></div>
+</div>
+</div>
+<!--logo end-->
+
+<div class="top-nav clearfix ">
+<ul class="navbar-nav navbar-nav-right">
+    <li class="nav-item nav-profile dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <span class="nav-profile-name">Admin</span>
+            <span class="online-status"></span>
+            <img src="{{url('/images/dummy-user.png')}}" alt="profile" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="{{url('/admin/logout')}}">
+                <i class="mdi mdi-logout text-primary"></i>
+                Logout
+            </a>
+        </div>
+    </li>
+</ul>
+</div>
+</header>
+
+
+
+
+
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+            
+                @foreach( Session::get('userinfo')['user_menu_permissions'] as $menu)
+                @if($menu['mnu_dropdown']=='No')
+                <li>
+                    <a class="" href="{{url('/admin/'.$menu['mnu_url'])}}">
+                        <i class="{{ $menu['mnu_icon']}}"></i>
+                        <span>{{ $menu['mnu_name']}}</span>
+                    </a>
+                </li>
+                @else
+                <li class="bold"> <a class="" href="{{ url('/admin/'.$menu['mnu_url']) }}"><i class="{{ $menu['mnu_icon']}}"></i><span> {{ $menu['mnu_name']}} </span></a>
+                    <ul class="sub">
+                        @foreach( Session::get('userinfo')['user_operation_permissions'] as $operation)
+                        @if( $menu['mnu_id'] == $operation['cfg_mun_id'] )
+                        <li> <a href="{{ url('/admin/'.$operation['op_link'])}}"> {{ $operation['op_name']}} </a></li>
+                        @endif
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        
+        </div>
+        <!-- sidebar menu end-->
+        
+    </div>
+</aside>
+
+
+
+
